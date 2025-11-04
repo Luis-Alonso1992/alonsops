@@ -19,7 +19,7 @@ resource "aws_lightsail_static_ip" "alonsops-staticip" {
 resource "aws_lightsail_instance" "alonsops-vps" {
   name              = "alonsops-vps"
   availability_zone = "us-east-1b"
-  blueprint_id      = "amazon_linux_2"
+  blueprint_id      = "ubuntu_24_04"
   bundle_id         = "nano_3_0"
   key_pair_name     = "MyKey"
   tags = {
