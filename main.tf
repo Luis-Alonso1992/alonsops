@@ -12,7 +12,9 @@ provider "aws" {
 }
 
 
-
+resource "aws_lightsail_static_ip" "alonsops-staticip" {
+  name = "alonsops-staticip"
+}
 
 resource "aws_lightsail_instance" "alonsops-vps" {
   name              = "alonsops-vps"
@@ -23,4 +25,9 @@ resource "aws_lightsail_instance" "alonsops-vps" {
   tags = {
     environment = "production"
   }
+}
+
+resource "aws_lightsail_static_ip_attachment" "alonsops-staticip-attachment" {
+  static_ip_name = aws_lightsail_static_ip.alonsops-staticip.id
+  instance_name = aws_lightsail_instance.alonsops-vps.id
 }
